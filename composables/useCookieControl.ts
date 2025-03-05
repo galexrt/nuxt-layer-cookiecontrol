@@ -1,14 +1,6 @@
 import { createSharedComposable } from "@vueuse/core";
-import { useCookiesStore } from "../store/cookies";
 
 const _useCookieControl = () => {
-  const hasCookiesAccepted = () => {
-    const cookiesStore = useCookiesStore();
-
-    const { hasCookiesAccepted } = storeToRefs(cookiesStore);
-    return hasCookiesAccepted;
-  };
-
   const texts = ref({
     title: "We use Cookies",
     subtitle:
@@ -24,7 +16,6 @@ const _useCookieControl = () => {
   });
 
   return {
-    hasCookiesAccepted,
     texts,
   };
 };
