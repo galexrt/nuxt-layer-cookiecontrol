@@ -1,0 +1,24 @@
+{
+  "name": "@galexrt/nuxt-layer-cookies",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "0.10.1",
+    "@vueuse/core": "^12.8.2",
+    "@vueuse/nuxt": "12.8.2",
+    "emoji-blast": "^0.10.2",
+    "nuxt": "3.15.4",
+    "pinia": "3.0.1",
+    "pinia-plugin-persistedstate": "4.2.0",
+    "vue": "3.5.13",
+    "vue-router": "4.5.0"
+  },
+  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+}
