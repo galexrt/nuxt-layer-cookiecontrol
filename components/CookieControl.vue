@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { emojiBlast } from 'emoji-blast'
-import { useCookiesStore } from './stores/cookies'
+import { useCookiesStore } from '../stores/cookies'
+import { useCookieControl } from '../composables/useCookieControl';
 
 defineProps<{
   clearSiteDataURL?: string | undefined;
