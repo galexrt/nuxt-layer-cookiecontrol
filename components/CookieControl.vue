@@ -33,7 +33,7 @@ const open = ref(cookiesState.value === null);
         >
             <template #header>
                 <div class="flex items-center justify-between">
-                    <h3 class="text-2xl font-semibold leading-6">
+                    <h3 class="text-2xl leading-6 font-semibold">
                         {{ texts.title }}
 
                         <span
@@ -47,7 +47,7 @@ const open = ref(cookiesState.value === null);
                         >
                     </h3>
 
-                    <UButton color="neutral" variant="ghost" icon="i-lucide-x" class="-my-1" @click="open = false" />
+                    <UButton class="-my-1" color="neutral" variant="ghost" icon="i-lucide-x" @click="open = false" />
                 </div>
             </template>
 
@@ -55,15 +55,15 @@ const open = ref(cookiesState.value === null);
                 <p>{{ texts.subtitle }}</p>
 
                 <UFieldGroup class="inline-flex w-full flex-1">
-                    <UButton variant="link" block class="flex-1" to="/privacy" :external="true">
+                    <UButton class="flex-1" variant="link" block to="/privacy" :external="true">
                         {{ texts.privacyPolicy }}
                     </UButton>
 
-                    <UButton variant="link" block class="flex-1" to="/imprint" :external="true">
+                    <UButton class="flex-1" variant="link" block to="/imprint" :external="true">
                         {{ texts.imprint }}
                     </UButton>
 
-                    <UButton v-if="clearSiteDataURL" variant="link" block class="flex-1" :to="clearSiteDataURL">
+                    <UButton v-if="clearSiteDataURL" class="flex-1" variant="link" block :to="clearSiteDataURL">
                         {{ texts.clearData }}
                     </UButton>
                 </UFieldGroup>
@@ -75,14 +75,14 @@ const open = ref(cookiesState.value === null);
 
             <template #footer>
                 <UFieldGroup class="inline-flex w-full">
-                    <UButton color="neutral" block class="flex-1" @click="open = false">
+                    <UButton class="flex-1" color="neutral" block @click="open = false">
                         {{ texts.close }}
                     </UButton>
 
                     <UButton
+                        class="flex-1"
                         block
                         color="error"
-                        class="flex-1"
                         :variant="cookiesState === false ? 'soft' : 'solid'"
                         @click="
                             cookiesState = false;
@@ -93,9 +93,9 @@ const open = ref(cookiesState.value === null);
                     </UButton>
 
                     <UButton
+                        class="flex-1"
                         block
                         color="success"
-                        class="flex-1"
                         :variant="cookiesState === true ? 'soft' : 'solid'"
                         @click="
                             cookiesState = true;
@@ -108,6 +108,6 @@ const open = ref(cookiesState.value === null);
             </template>
         </UCard>
 
-        <UButton icon="i-lucide-cookie" size="xl" class="fixed bottom-10 right-6" @click="open = true" />
+        <UButton class="fixed right-6 bottom-10" icon="i-lucide-cookie" size="xl" @click="open = true" />
     </div>
 </template>
