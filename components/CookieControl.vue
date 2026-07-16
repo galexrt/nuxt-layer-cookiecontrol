@@ -1,16 +1,26 @@
 <script lang="ts" setup>
 import { emojiBlast } from 'emoji-blast';
-import { useCookieControl } from '../composables/useCookieControl';
+import { defaultCookieControlTexts, type CookieControlTexts } from '../composables/useCookieControl';
 import { useCookiesStore } from '../stores/cookies';
 
-defineProps<{
-    clearSiteDataURL?: string | undefined;
-}>();
+const props = withDefaults(
+    defineProps<{
+        clearSiteDataURL?: string | undefined;
+        texts?: Partial<CookieControlTexts> | undefined;
+    }>(),
+    {
+        clearSiteDataURL: undefined,
+        texts: () => ({}),
+    },
+);
 
 const cookiesStore = useCookiesStore();
 const { cookiesState } = storeToRefs(cookiesStore);
 
-const { texts } = useCookieControl();
+const texts = computed<CookieControlTexts>(() => ({
+    ...defaultCookieControlTexts,
+    ...props.texts,
+}));
 
 const open = ref(cookiesState.value === null);
 </script>

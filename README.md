@@ -17,20 +17,22 @@ My basic "CookieControl" layer, I mainly use in my projects so I don't have to d
 
 ### i18n / Custom texts
 
-`texts` is a shared ref, so you can override the defaults once and every consumer will use the same values.
+Pass the localized texts into the component. If the parent recomputes the object when the locale changes, the cookie control updates automatically.
 
 ```ts
-const { texts } = useCookieControl();
+const cookieControlTexts = computed(() => ({
+    title: t('cookieControl.title'),
+    subtitle: t('cookieControl.subtitle'),
+    description: t('cookieControl.description'),
+    clearData: t('cookieControl.clearData'),
+    privacyPolicy: t('cookieControl.privacyPolicy'),
+    imprint: t('cookieControl.imprint'),
+    close: t('cookieControl.close'),
+    reject: t('cookieControl.reject'),
+    accept: t('cookieControl.accept'),
+}));
+```
 
-texts.value = {
-    title: 'Cookies auf dieser Website',
-    subtitle: 'Wir nutzen Cookies für Analyse und grundlegende Funktionen.',
-    description: 'Du kannst die gespeicherten Daten jederzeit in deinem Browser löschen.',
-    clearData: 'Lokale Daten entfernen',
-    privacyPolicy: 'Datenschutzerklärung',
-    imprint: 'Impressum',
-    close: 'Schließen',
-    reject: 'Ablehnen',
-    accept: 'Akzeptieren',
-};
+```vue
+<CookieControl :texts="cookieControlTexts" />
 ```
