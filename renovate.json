@@ -1,0 +1,34 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>nuxt/renovate-config-nuxt",
+        "helpers:pinGitHubActionDigests"
+    ],
+    "schedule": [
+      "at any time"
+    ],
+    "baseBranchPatterns": ["develop"],
+    "lockFileMaintenance": {
+        "enabled": true
+    },
+    "packageRules": [
+        {
+            "matchManagers": ["gomod"],
+            "groupName": "go modules",
+            "groupSlug": "go-modules"
+        },
+        {
+            "matchManagers": ["gomod"],
+            "matchDepTypes": ["golang"],
+            "matchDepNames": ["go"],
+            "groupName": "go toolchain",
+            "groupSlug": "go-toolchain",
+            "rangeStrategy": "bump"
+        }
+    ],
+    "postUpdateOptions": ["gomodTidy", "pnpmDedupe"],
+    "nix": {
+        "enabled": true
+    },
+    "minimumReleaseAge": "1 day"
+}
